@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Profile Page</title>
+    
+</head>
+<body>
+   
+    <div>
+        <h1 data-testid="slackUserName">Elysium</h1>
+        <img src="images/img.jpeg" alt="Elysium" data-testid="slackDisplayImage">
+        <p data-testid="currentDayOfTheWeek">Current Day: <span id="dayOfWeek"></span></p>
+        <p data-testid="currentUTCTime">Current UTC Time: <span id="utcTime"></span> milliseconds</p>
+        <p data-testid="myTrack">Track: Frontend</p>
+        <p data-testid="githubURL">GitHub URL: <a href="https://github.com/Elyzsium" target="_blank">https://github.com/Elyzsium</a></p>
+    </div>
+    <script>
+      
+        function updateDayAndTime() {
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const now = new Date();
+            const dayOfWeek = daysOfWeek[now.getUTCDay()];
+            const utcTime = now.getTime();
+            document.getElementById("dayOfWeek").textContent = dayOfWeek;
+            document.getElementById("utcTime").textContent = utcTime;
+        }
+        updateDayAndTime();
+        setInterval(updateDayAndTime, 1000);
+    </script>
+</body>
+</html>
